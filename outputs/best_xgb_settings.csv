@@ -1,0 +1,7 @@
+activity,config,threshold,tuning_f1
+open_pr,regularized,0.75,0.44759825327510916
+open_issue,depth_3,0.9,0.49744114636642783
+issue_comment,regularized,0.8500000000000001,0.4380639868744873
+pr_review,depth_4,0.8500000000000001,0.42120141342756184
+pr_review_comment,regularized,0.9,0.3826530612244898
+push,depth_4,0.45,0.6772037763869736

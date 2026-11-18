@@ -1,0 +1,7 @@
+activity,threshold
+open_pr,0.75
+open_issue,0.9
+issue_comment,0.9
+pr_review,0.8500000000000001
+pr_review_comment,0.9
+push,0.5

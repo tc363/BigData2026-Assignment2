@@ -1,0 +1,2 @@
+name,learning_rate,max_iter,max_leaf_nodes,min_samples_leaf,l2_regularization
+fixed,0.05,200,15,20,1.0

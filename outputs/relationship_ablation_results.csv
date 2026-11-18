@@ -1,0 +1,3 @@
+model,mean_macro_f1,mean_micro_f1,mean_combined_score,minimum_combined_score,maximum_combined_score,experiment,number_of_features
+Activity features only,0.4232715374018762,0.4979247825572594,0.4605981599795678,0.41412928000717464,0.507067039951961,Relationship feature ablation,28
+Activity + repository features,0.4132062224506966,0.4964567320759581,0.45483147726332734,0.4100670680776257,0.49959588644902897,Relationship feature ablation,32

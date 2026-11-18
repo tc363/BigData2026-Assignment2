@@ -1,0 +1,126 @@
+digraph SchemaGraph {
+    graph [
+        rankdir=LR,
+        splines=polyline,
+        nodesep=0.5,
+        ranksep=1.2,
+        pad=0.3
+    ];
+
+    node [shape=plain, fontname="Helvetica", fontsize=10];
+    edge [
+        fontname="Helvetica",
+        fontsize=8,
+        color="#526D82",
+        arrowsize=0.8
+    ];
+
+    Users [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR><TD BGCOLOR="#D9EAF7" COLSPAN="2"><B>Users</B></TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FFF0B3"><B>PK</B></TD><TD PORT="user_pk" ALIGN="LEFT">user_id</TD></TR>
+        </TABLE>
+    >];
+
+    Repositories [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR><TD BGCOLOR="#D9EAF7" COLSPAN="2"><B>Repositories</B></TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FFF0B3"><B>PK</B></TD><TD PORT="repo_pk" ALIGN="LEFT">repo_id</TD></TR>
+        </TABLE>
+    >];
+
+    PullRequests [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR><TD BGCOLOR="#D9EAF7" COLSPAN="2"><B>PullRequests</B></TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FFF0B3"><B>PK</B></TD><TD PORT="pr_pk" ALIGN="LEFT">pr_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="pr_repo_fk" ALIGN="LEFT">repo_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="pr_author_fk" ALIGN="LEFT">author_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="pr_merged_by_fk" ALIGN="LEFT">merged_by_id</TD></TR>
+        </TABLE>
+    >];
+
+    Issues [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR><TD BGCOLOR="#D9EAF7" COLSPAN="2"><B>Issues</B></TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FFF0B3"><B>PK</B></TD><TD PORT="issue_pk" ALIGN="LEFT">issue_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="issue_repo_fk" ALIGN="LEFT">repo_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="issue_author_fk" ALIGN="LEFT">author_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="issue_pr_fk" ALIGN="LEFT">pull_request_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="issue_assignee_fk" ALIGN="LEFT">assignee_id</TD></TR>
+        </TABLE>
+    >];
+
+    IssueComments [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR><TD BGCOLOR="#D9EAF7" COLSPAN="2"><B>IssueComments</B></TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FFF0B3"><B>PK</B></TD><TD PORT="ic_pk" ALIGN="LEFT">comment_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="ic_issue_fk" ALIGN="LEFT">issue_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="ic_repo_fk" ALIGN="LEFT">repo_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="ic_author_fk" ALIGN="LEFT">author_id</TD></TR>
+        </TABLE>
+    >];
+
+    PRReviews [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR><TD BGCOLOR="#D9EAF7" COLSPAN="2"><B>PRReviews</B></TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FFF0B3"><B>PK</B></TD><TD PORT="review_pk" ALIGN="LEFT">review_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="review_pr_fk" ALIGN="LEFT">pr_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="review_repo_fk" ALIGN="LEFT">repo_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="reviewer_fk" ALIGN="LEFT">reviewer_id</TD></TR>
+        </TABLE>
+    >];
+
+    PRReviewComments [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR><TD BGCOLOR="#D9EAF7" COLSPAN="2"><B>PRReviewComments</B></TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FFF0B3"><B>PK</B></TD><TD PORT="prc_pk" ALIGN="LEFT">comment_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="prc_pr_fk" ALIGN="LEFT">pr_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="prc_repo_fk" ALIGN="LEFT">repo_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="prc_author_fk" ALIGN="LEFT">author_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="prc_review_fk" ALIGN="LEFT">pull_request_review_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="prc_parent_fk" ALIGN="LEFT">in_reply_to_id</TD></TR>
+        </TABLE>
+    >];
+
+    Pushes [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR><TD BGCOLOR="#D9EAF7" COLSPAN="2"><B>Pushes</B></TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FFF0B3"><B>PK</B></TD><TD PORT="push_pk" ALIGN="LEFT">push_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="push_user_fk" ALIGN="LEFT">user_id</TD></TR>
+            <TR><TD ALIGN="LEFT" BGCOLOR="#FADBD8"><B>FK</B></TD><TD PORT="push_repo_fk" ALIGN="LEFT">repo_id</TD></TR>
+        </TABLE>
+    >];
+
+    // PullRequests foreign keys
+    PullRequests:pr_repo_fk -> Repositories:repo_pk;
+    PullRequests:pr_author_fk -> Users:user_pk;
+    PullRequests:pr_merged_by_fk -> Users:user_pk;
+
+    // Issues foreign keys
+    Issues:issue_repo_fk -> Repositories:repo_pk;
+    Issues:issue_author_fk -> Users:user_pk;
+    Issues:issue_pr_fk -> PullRequests:pr_pk;
+    Issues:issue_assignee_fk -> Users:user_pk;
+
+    // IssueComments foreign keys
+    IssueComments:ic_issue_fk -> Issues:issue_pk;
+    IssueComments:ic_repo_fk -> Repositories:repo_pk;
+    IssueComments:ic_author_fk -> Users:user_pk;
+
+    // PRReviews foreign keys
+    PRReviews:review_pr_fk -> PullRequests:pr_pk;
+    PRReviews:review_repo_fk -> Repositories:repo_pk;
+    PRReviews:reviewer_fk -> Users:user_pk;
+
+    // PRReviewComments foreign keys
+    PRReviewComments:prc_pr_fk -> PullRequests:pr_pk;
+    PRReviewComments:prc_repo_fk -> Repositories:repo_pk;
+    PRReviewComments:prc_author_fk -> Users:user_pk;
+    PRReviewComments:prc_review_fk -> PRReviews:review_pk;
+    PRReviewComments:prc_parent_fk -> PRReviewComments:prc_pk;
+
+    // Pushes foreign keys
+    Pushes:push_user_fk -> Users:user_pk;
+    Pushes:push_repo_fk -> Repositories:repo_pk;
+
+}
